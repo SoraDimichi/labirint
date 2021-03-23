@@ -1,5 +1,7 @@
-// const finalPosition = getRandomInt(1, 9);
-
+const ROWS = 3;
+const COLUMNS = 3;
+const MOVES = 10;
+const TIME_BREAK = 2000;
 
 
 function getRandomInt(min, max) {
@@ -7,6 +9,8 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
+
+const initalPosition = getRandomInt(1, 9);
 
 const randomizeDirection = () => {
   const directions = ['up', 'right', 'down', 'left'];
@@ -57,14 +61,6 @@ const getMoveHistoryAndFinalPosition = (initalPosition, rowsNumber, columnsNumbe
   }
   return {initalPosition, moveHistory, currentPosition}
 }
-
-const initalPosition = getRandomInt(1, 9);
-const ROWS = 3;
-const COLUMNS = 3;
-const MOVES = 10;
-const TIME_BREAK = 2000;
-
-console.log()
 
 const {moveHistory} = getMoveHistoryAndFinalPosition(initalPosition, ROWS, COLUMNS, MOVES);
 
