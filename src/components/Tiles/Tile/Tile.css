@@ -1,0 +1,57 @@
+.Tile {
+  border-radius: 6px;
+  border: 2px solid #666;
+}
+
+.Tile__button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.Tile__text {
+  grid-area: 1 / 1 / 2 / 2;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s linear, opacity 0.5s ease-in-out;
+}
+
+.Tile__image {
+  grid-area: 1 / 1 / 2 / 2;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s linear, opacity 0.5s ease-in-out;
+}
+
+.Tile__text_start_vis {
+  opacity: 1;
+  visibility: visible;
+}
+
+.Tile__text_finish_vis {
+  opacity: 1;
+  visibility: visible;
+}
+
+.Tile__text_lose_vis {
+  opacity: 1;
+  visibility: visible;
+}
+
+.Tile__text_win_vis {
+  opacity: 1;
+  visibility: visible;
+}
