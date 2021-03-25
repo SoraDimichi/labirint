@@ -1,10 +1,28 @@
 import React from 'react';
-import arrow from '../../../images/arrow.svg';
-import arrowGreen from '../../../images/arrow-green.svg';
+import './Arrow.css';
 
-const Arrow = () => (
-  <li className="Arrow">
-    <img src={arrow || arrowGreen} className="Arrow__image" alt="поражение" />
+const Arrow = ({ direction }) => (
+  <li className={`Arrow Arrow_${direction}`}>
+    <svg
+      width="65"
+      height="65"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M54.2808 33C54.2808 34.1046 53.3716 35
+         52.25 35H17.9464C23.7676 42.1112 27.6975
+         45.8639 34.2135 50.6464C35.1128 51.3064
+         35.2985 52.5594 34.6283 53.4451C33.9581
+         54.3308 32.6858 54.5137 31.7865 53.8537C23.9775
+         48.1223 19.6571 43.7223 12.148 34.2291C11.5878
+         33.5209 11.5754 32.532 12.1175 31.8104C18.6491
+         23.1171 22.776 18.4997 31.8178 12.1239C32.7297
+         11.4808 33.9982 11.6876 34.6512 12.5857C35.3041
+         13.4838 35.0941 14.7331 34.1822 15.3761C26.7381
+         20.6254 22.8627 24.5371 17.8191 31L52.25 31C53.3716
+         31 54.2808 31.8954 54.2808 33Z"
+      />
+    </svg>
   </li>
 );
 

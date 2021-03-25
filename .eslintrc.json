@@ -27,6 +27,7 @@
         "no-nested-ternary": "off",
         "react/jsx-props-no-spreading": "off",
         "no-unused-expressions": ["error", { "allowTernary": true }],
-        "default-case": "off"
+        "default-case": "off",
+        "react/no-array-index-key": "off"
     }
 }

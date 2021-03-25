@@ -7,7 +7,7 @@ const Tiles = () => {
   const { tiles } = useSelector((
     state,
   ) => ({ tiles: state.tiles }));
-  console.log('tiles', tiles);
+
   const tilesData = React.useMemo(
     () => Array(tiles).fill().map((_item, index) => index + 1),
     [tiles],

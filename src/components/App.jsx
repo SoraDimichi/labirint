@@ -8,6 +8,7 @@ import {
   INITIAL_ROWS,
   INITIAL_COLUMNS,
   INITIAL_MOVES,
+  INITIAL_COUNTDOWN,
 } from '../utils/consts';
 import { startGame } from '../redux/actions';
 
@@ -15,8 +16,8 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(startGame({
-      numberOfMoves: INITIAL_MOVES,
-      countDown: 2000,
+      moves: INITIAL_MOVES,
+      countDown: INITIAL_COUNTDOWN,
       rows: INITIAL_ROWS,
       columns: INITIAL_COLUMNS,
     }));

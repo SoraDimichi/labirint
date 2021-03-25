@@ -24,8 +24,8 @@
   font-weight: bold;
   font-size: 16px;
   line-height: 19px;
-  visibility: hidden;
   opacity: 0;
+  visibility: hidden;
   transition: visibility 0.5s linear, opacity 0.5s ease-in-out;
 }
 
@@ -46,12 +46,12 @@
   visibility: visible;
 }
 
-.Tile__text_lose_vis {
+.Tile__image_lose_vis {
   opacity: 1;
   visibility: visible;
 }
 
-.Tile__text_win_vis {
+.Tile__image_win_vis {
   opacity: 1;
   visibility: visible;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Popup.css';
 import { startGame } from '../../redux/actions';
+import { HARD_LEVEL, MEDIUM_LEVEL, EASY_LEVEL } from '../../utils/consts';
 
 const Popup = React.memo(() => {
   const { popupOpened } = useSelector((
@@ -10,7 +11,7 @@ const Popup = React.memo(() => {
   const dispatch = useDispatch();
   const handleDifficultyAndClose = (rows, columns, moves) => {
     dispatch(startGame({
-      numberOfMoves: moves,
+      moves,
       rows,
       columns,
     }));
@@ -18,38 +19,36 @@ const Popup = React.memo(() => {
 
   return (
     <div className={`Popup ${popupOpened ? 'Popup_opened' : ''}`}>
-      <h1 className="Popup__title">Поздравляем с победой!</h1>
-      <p className="Popup__subtitle">Попробуйте снова:</p>
+      <h1 className="Popup__title">Победа!</h1>
+      <p className="Popup__subtitle">Попробуйте еще раз:</p>
       <ul className="Popup__restart-menu">
-        <ul className="Popup__restart-menu">
-          <li className="Popup__restart-menu-item">
-            <button
-              type="button"
-              className="Popup__restart-menu-button"
-              onClick={() => handleDifficultyAndClose(9, 9, 10)}
-            >
-              Легкий уровень
-            </button>
-          </li>
-          <li className="Popup__restart-menu-item">
-            <button
-              type="button"
-              className="Popup__restart-menu-button"
-              onClick={() => handleDifficultyAndClose(9, 9, 15)}
-            >
-              Средний уровень
-            </button>
-          </li>
-          <li className="Popup__restart-menu-item">
-            <button
-              type="button"
-              className="Popup__restart-menu-button"
-              onClick={() => handleDifficultyAndClose(12, 12, 15)}
-            >
-              Сложный уровень
-            </button>
-          </li>
-        </ul>
+        <li className="Popup__restart-menu-item">
+          <button
+            type="button"
+            className="Popup__restart-menu-button"
+            onClick={() => handleDifficultyAndClose(EASY_LEVEL)}
+          >
+            Легко
+          </button>
+        </li>
+        <li className="Popup__restart-menu-item">
+          <button
+            type="button"
+            className="Popup__restart-menu-button"
+            onClick={() => handleDifficultyAndClose(MEDIUM_LEVEL)}
+          >
+            Средне
+          </button>
+        </li>
+        <li className="Popup__restart-menu-item">
+          <button
+            type="button"
+            className="Popup__restart-menu-button"
+            onClick={() => handleDifficultyAndClose(HARD_LEVEL)}
+          >
+            Сложно
+          </button>
+        </li>
       </ul>
     </div>
   );

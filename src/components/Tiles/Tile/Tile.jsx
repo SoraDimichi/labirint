@@ -3,18 +3,16 @@ import './Tile.css';
 import { useSelector } from 'react-redux';
 import like from '../../../images/like.svg';
 import dislike from '../../../images/dislike.svg';
-// import like from '../../../images/like.svg';
 
 const Tile = ({ position }) => {
   const { startPosition, finishPosition } = useSelector((
     state,
-  ) => ({ startPosition: state.startPosition, finishPosition: state.currentPosition }));
+  ) => ({ startPosition: state.startPosition, finishPosition: state.finishPosition }));
 
   const [result, setResult] = useState('');
 
   const handleTileClick = (pos) => {
     pos === finishPosition ? setResult('win') : setResult('lose');
-    console.log(pos);
   };
 
   return (
@@ -22,7 +20,7 @@ const Tile = ({ position }) => {
       <button type="button" className="Tile__button" onClick={() => handleTileClick(position)}>
         <p
           className={`Tile__text
-           ${position === startPosition ? 'Tile__text_win_vis' : ''}`}
+          ${position === startPosition && result === '' ? 'Tile__text_start_vis' : ''}`}
         >
           Старт
         </p>

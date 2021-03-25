@@ -1,8 +1,7 @@
 export const INITIAL_ROWS = 3;
 export const INITIAL_COLUMNS = 3;
 export const INITIAL_MOVES = 10;
-export const INITIAL_TILES = INITIAL_MOVES * INITIAL_COLUMNS;
-// const TIME_BREAK = 2000;
+export const INITIAL_COUNTDOWN = 2000;
 
 export const getRandomInt = (minInt, maxInt) => {
   const min = Math.ceil(minInt);
@@ -15,54 +14,72 @@ export const randomizeDirection = () => {
   return directions[Math.floor(Math.random() * directions.length)];
 };
 
+export const HARD_LEVEL = {
+  moves: 15,
+  rows: 12,
+  columns: 12,
+};
+
+export const EASY_LEVEL = {
+  moves: 10,
+  rows: 9,
+  columns: 9,
+};
+
+export const MEDIUM_LEVEL = {
+  moves: 15,
+  rows: 9,
+  columns: 9,
+};
+
 export const getTilesNumber = (rows, columns) => rows * columns;
 
-export const getMoveHistoryAndFinalPosition = (
+export const getMoveHistoryAndfinishPosition = ({
   startPosition,
-  rowsNumber,
-  columnsNumber,
-  numberOfTiles,
-  numberOfMoves,
-) => {
-  let currentPosition = startPosition;
-  let countLimit = numberOfMoves;
-  const currentMoveHistory = [];
+  rows,
+  columns,
+  tiles,
+  moves,
+}) => {
+  let finishPosition = startPosition;
+  let countLimit = moves;
+  const moveHistory = [];
   for (let i = 1; i <= countLimit; i++) {
     const move = randomizeDirection();
     switch (move) {
       case 'up':
-        if (currentPosition > rowsNumber) {
-          currentMoveHistory.push(move);
-          currentPosition -= rowsNumber;
+        if (finishPosition > rows) {
+          moveHistory.push(move);
+          finishPosition -= rows;
         } else {
           countLimit++;
         }
         break;
       case 'down':
-        if (currentPosition <= numberOfTiles - rowsNumber) {
-          currentMoveHistory.push(move);
-          currentPosition += rowsNumber;
+        if (finishPosition <= tiles - rows) {
+          moveHistory.push(move);
+          finishPosition += rows;
         } else {
           countLimit++;
         }
         break;
       case 'right':
-        if (currentPosition % columnsNumber !== 0) {
-          currentMoveHistory.push(move);
-          currentPosition += 1;
+        if (finishPosition % columns !== 0) {
+          moveHistory.push(move);
+          finishPosition += 1;
         } else {
           countLimit++;
         }
         break;
       case 'left':
-        if (currentPosition % columnsNumber !== 1) {
-          currentMoveHistory.push(move);
-          currentPosition -= 1;
+        if (finishPosition % columns !== 1) {
+          moveHistory.push(move);
+          finishPosition -= 1;
         } else {
           countLimit++;
         }
         break;
     }
   }
-  return { currentMoveHistory, currentPosition };
+  return { moveHistory, finishPosition };
 };
