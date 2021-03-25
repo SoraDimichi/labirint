@@ -1,7 +1,6 @@
 import {
   PLAYER_TURN,
   SET_GAME_STATE,
-  SET_PATH_SHOWED,
   TOGGLE_POPUP,
   SET_COUNT_FOR_ARROWS,
 } from '../types';
@@ -47,43 +46,11 @@ const gameFieldReducer = (state = INITIAL_STATE, action) => {
       } = action;
       return {
         ...state,
-        ...INITIAL_STATE,
         moveHistory,
         startPosition,
         finishPosition,
         countDown,
         tiles,
-      };
-    }
-
-    case PLAYER_TURN: {
-      const {
-        payload: {
-          selectedPosition,
-        },
-      } = action;
-      return {
-        ...state,
-        selectedPosition,
-      };
-    }
-
-    case SET_PATH_SHOWED: {
-      const {
-        payload: {
-          pathShowedState,
-        },
-      } = action;
-      return {
-        ...state,
-        pathShowedState,
-      };
-    }
-
-    case TOGGLE_POPUP: {
-      return {
-        ...state,
-        popupOpened: !state.popupOpened,
       };
     }
 
@@ -100,6 +67,25 @@ const gameFieldReducer = (state = INITIAL_STATE, action) => {
         counter,
         moveHistory,
         countDown,
+      };
+    }
+
+    case PLAYER_TURN: {
+      const {
+        payload: {
+          selectedPosition,
+        },
+      } = action;
+      return {
+        ...state,
+        selectedPosition,
+      };
+    }
+
+    case TOGGLE_POPUP: {
+      return {
+        ...state,
+        popupOpened: !state.popupOpened,
       };
     }
 

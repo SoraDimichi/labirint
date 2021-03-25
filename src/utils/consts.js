@@ -16,20 +16,20 @@ export const randomizeDirection = () => {
 
 export const HARD_LEVEL = {
   moves: 15,
-  rows: 12,
-  columns: 12,
+  rows: 4,
+  columns: 4,
 };
 
 export const EASY_LEVEL = {
   moves: 10,
-  rows: 9,
-  columns: 9,
+  rows: 3,
+  columns: 3,
 };
 
 export const MEDIUM_LEVEL = {
   moves: 15,
-  rows: 9,
-  columns: 9,
+  rows: 3,
+  columns: 3,
 };
 
 export const getTilesNumber = (rows, columns) => rows * columns;

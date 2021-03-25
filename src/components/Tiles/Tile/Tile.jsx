@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import './Tile.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import like from '../../../images/like.svg';
 import dislike from '../../../images/dislike.svg';
+import { togglePopup } from '../../../redux/actions';
 
 const Tile = ({ position }) => {
   const { startPosition, finishPosition } = useSelector((
     state,
   ) => ({ startPosition: state.startPosition, finishPosition: state.finishPosition }));
-
+  const dispatch = useDispatch();
   const [result, setResult] = useState('');
 
   const handleTileClick = (pos) => {
     pos === finishPosition ? setResult('win') : setResult('lose');
+    dispatch(togglePopup());
   };
 
   return (

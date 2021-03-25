@@ -6,7 +6,6 @@ import {
 import {
   PLAYER_TURN,
   SET_GAME_STATE,
-  SET_PATH_SHOWED,
   TOGGLE_POPUP,
   SET_COUNT_FOR_ARROWS,
 } from '../types';
@@ -38,18 +37,21 @@ export const startGame = ({
   };
 };
 
+// export function
+
 export function setCountForArrows(moveHistory, countDown) {
-  return async (dispatch) => {
+  return () => {
     let counter = 0;
-    setTimeout(() => {
-      counter++;
-    }, countDown);
-    dispatch({
+    if (counter < moveHistory.length) {
+      setTimeout(() => {
+        counter++;
+      }, countDown);
+    }
+    return ({
       type: SET_COUNT_FOR_ARROWS,
       payload: {
         moveHistory,
         countDown,
-        counter,
       },
     });
   };
@@ -62,9 +64,4 @@ export const togglePopup = () => ({
 export const playerTurn = (selectedPosition) => ({
   type: PLAYER_TURN,
   selectedPosition,
-});
-
-export const playerPathShowed = (pathShowedState) => ({
-  type: SET_PATH_SHOWED,
-  pathShowedState,
 });

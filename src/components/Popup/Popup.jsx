@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Popup.css';
-import { startGame } from '../../redux/actions';
+import { startGame, togglePopup } from '../../redux/actions';
 import { HARD_LEVEL, MEDIUM_LEVEL, EASY_LEVEL } from '../../utils/consts';
 
 const Popup = React.memo(() => {
@@ -9,12 +9,13 @@ const Popup = React.memo(() => {
     state,
   ) => ({ popupOpened: state.popupOpened }));
   const dispatch = useDispatch();
-  const handleDifficultyAndClose = (rows, columns, moves) => {
+  const handleDifficultyAndClose = ({ rows, columns, moves }) => {
     dispatch(startGame({
       moves,
       rows,
       columns,
     }));
+    dispatch(togglePopup());
   };
 
   return (
