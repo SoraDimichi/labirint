@@ -34,8 +34,6 @@ const Arrows = () => {
         const arrowElement = (<Arrow direction={moveHistory[arrows.length]} key={arrows.length} />);
         setArrows([...arrows, arrowElement]);
         if (arrows.length === moveHistory.length - 1) {
-          console.log(arrows);
-          console.log(moveHistory);
           dispatch(toggleClickable());
         }
       }, countDown);
@@ -44,7 +42,6 @@ const Arrows = () => {
 
   return (
     <ul className="Arrows">
-      {console.log(arrows)}
       {arrows}
     </ul>
   );

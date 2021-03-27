@@ -15,9 +15,11 @@ import { startGame } from '../redux/actions';
 const App = () => {
   const {
     isClickable,
+    gameStatus,
   } = useSelector((
     state,
   ) => ({
+    gameStatus: state.gameStatus,
     isClickable: state.isClickable,
   }));
   const dispatch = useDispatch();
@@ -36,11 +38,8 @@ const App = () => {
         Лабиринт
       </h1>
       <p className="App__subtitle">
-        {
-          isClickable
-            ? 'Пришло время кликать'
-            : 'Двигайся мысленно по стрелочкам.'
-        }
+        {isClickable ? 'Пришло время кликать'
+          : (gameStatus !== '' ? 'Игра закончена' : 'Двигайся мысленно по стрелочкам.')}
       </p>
       <Tiles />
       <Arrows />
