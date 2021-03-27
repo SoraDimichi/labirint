@@ -20,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "buildAndDeploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +44,7 @@
   "main": "index.js",
   "repository": "git@github.com:SoraDimichi/labirint.git",
   "author": "sorad <soradimichi@gmail.com>",
+  "homepage": "https://soradimichi.github.io/labirint/",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^7.22.0",

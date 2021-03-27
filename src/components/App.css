@@ -1,6 +1,6 @@
 .App {
   display: grid;
-  grid-template-columns: 1fr minmax(30px, 1fr) minmax(1px, 331px) minmax(30px, 1fr) 1fr;
+  grid-template-columns: 1fr minmax(10px, 1fr) 300px minmax(10px, 1fr) 1fr;
   grid-template-rows: 0.55fr max-content 24px max-content 32px max-content 32px max-content 0.45fr;
   min-height: 100vh;
 }

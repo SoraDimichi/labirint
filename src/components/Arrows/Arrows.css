@@ -4,6 +4,6 @@
   margin: 0;
   grid-area: 8 / 3 / 9 / 4;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(66px, 1fr));
-  grid-template-rows: repeat(3 ,65px);
+  grid-template-columns: repeat(auto-fill, minmax(59px, 1fr));
+  grid-template-rows: repeat(3 ,59px);
 }
