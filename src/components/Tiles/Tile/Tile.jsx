@@ -1,46 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Tile.css';
 import { useDispatch, useSelector } from 'react-redux';
 import like from '../../../images/like.svg';
 import dislike from '../../../images/dislike.svg';
-import { togglePopup } from '../../../redux/actions';
+import {
+  togglePopup,
+  setGameStatus,
+} from '../../../redux/actions';
 
 const Tile = ({ position }) => {
-  const { startPosition, finishPosition } = useSelector((
+  const { startPosition, finishPosition, gameStatus } = useSelector((
     state,
-  ) => ({ startPosition: state.startPosition, finishPosition: state.finishPosition }));
+  ) => ({
+    startPosition: state.startPosition,
+    finishPosition: state.finishPosition,
+    gameStatus: state.gameStatus,
+  }));
+
   const dispatch = useDispatch();
-  const [result, setResult] = useState('');
+  const [tileResult, setTileResult] = useState('');
 
   const handleTileClick = (pos) => {
-    pos === finishPosition ? setResult('win') : setResult('lose');
-    dispatch(togglePopup());
+    pos === finishPosition ? setTileResult('win') : setTileResult('lose');
+    setTimeout(() => dispatch(togglePopup()), 2000);
   };
+
+  useEffect(() => {
+    if (tileResult !== '') {
+      dispatch(setGameStatus(tileResult));
+    }
+  }, [tileResult]);
+
+  useEffect(() => {
+    if (gameStatus === '') {
+      setTileResult('');
+    }
+  }, [gameStatus]);
 
   return (
     <li className="Tile">
       <button type="button" className="Tile__button" onClick={() => handleTileClick(position)}>
         <p
           className={`Tile__text
-          ${position === startPosition && result === '' ? 'Tile__text_start_vis' : ''}`}
+          ${position === startPosition
+          && tileResult === ''
+            ? (position === finishPosition && gameStatus === 'lose'
+              ? '' : 'Tile__text_start_vis')
+            : ''}`}
         >
           Старт
         </p>
         <p
           className={`Tile__text
-          ${position === finishPosition && result === 'lose' ? 'Tile__text_finish_vis' : ''}`}
+          ${position === finishPosition && gameStatus === 'lose' ? 'Tile__text_finish_vis' : ''}`}
         >
           Финиш
         </p>
         <img
           className={`Tile__image
-          ${position !== finishPosition && result === 'lose' ? 'Tile__image_lose_vis' : ''}`}
+          ${position !== finishPosition && tileResult === 'lose' ? 'Tile__image_lose_vis' : ''}`}
           src={dislike}
           alt="поражение"
         />
         <img
           className={`Tile__image
-          ${position === finishPosition && result === 'win' ? 'Tile__image_win_vis' : ''}`}
+          ${position === finishPosition && tileResult === 'win' ? 'Tile__image_win_vis' : ''}`}
           src={like}
           alt="победа"
         />
@@ -50,7 +74,3 @@ const Tile = ({ position }) => {
 };
 
 export default Tile;
-
-// <img src={like} className="Tile__image" alt="победа" />
-// {finishPosition === position ? 'finish' : ''}
-// {position}

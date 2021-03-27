@@ -1,7 +1,7 @@
 export const INITIAL_ROWS = 3;
 export const INITIAL_COLUMNS = 3;
 export const INITIAL_MOVES = 10;
-export const INITIAL_COUNTDOWN = 2000;
+export const INITIAL_COUNTDOWN = 300;
 
 export const getRandomInt = (minInt, maxInt) => {
   const min = Math.ceil(minInt);
@@ -12,6 +12,12 @@ export const getRandomInt = (minInt, maxInt) => {
 export const randomizeDirection = () => {
   const directions = ['up', 'right', 'down', 'left'];
   return directions[Math.floor(Math.random() * directions.length)];
+};
+
+export const gameStatus = {
+  started: 'started',
+  win: 'win',
+  lose: 'lose',
 };
 
 export const HARD_LEVEL = {

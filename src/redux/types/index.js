@@ -3,3 +3,4 @@ export const SET_GAME_STATE = 'SET_GAME_STATE';
 export const SET_PATH_SHOWED = 'SET_PATH_SHOWED';
 export const TOGGLE_POPUP = 'TOGGLE_POPUP';
 export const SET_COUNT_FOR_ARROWS = 'SET_COUNT_FOR_ARROWS';
+export const SET_GAME_STATUS = 'SET_GAME_STATUS';

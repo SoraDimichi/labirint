@@ -1,6 +1,7 @@
 import {
   PLAYER_TURN,
   SET_GAME_STATE,
+  SET_GAME_STATUS,
   TOGGLE_POPUP,
   SET_COUNT_FOR_ARROWS,
 } from '../types';
@@ -30,6 +31,7 @@ const INITIAL_STATE = {
   startPosition: null,
   pathShowedState: PATH_SHOWED_STATES.notStarted,
   popupOpened: false,
+  gameStatus: '',
 };
 
 const gameFieldReducer = (state = INITIAL_STATE, action) => {
@@ -40,8 +42,8 @@ const gameFieldReducer = (state = INITIAL_STATE, action) => {
           moveHistory,
           startPosition,
           finishPosition,
-          countDown,
           tiles,
+          moves,
         },
       } = action;
       return {
@@ -49,8 +51,20 @@ const gameFieldReducer = (state = INITIAL_STATE, action) => {
         moveHistory,
         startPosition,
         finishPosition,
-        countDown,
         tiles,
+        moves,
+      };
+    }
+
+    case SET_GAME_STATUS: {
+      const {
+        payload: {
+          gameStatus,
+        },
+      } = action;
+      return {
+        ...state,
+        gameStatus,
       };
     }
 

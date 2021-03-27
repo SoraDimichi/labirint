@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Popup.css';
-import { startGame, togglePopup } from '../../redux/actions';
+import { startGame, togglePopup, setGameStatus } from '../../redux/actions';
 import { HARD_LEVEL, MEDIUM_LEVEL, EASY_LEVEL } from '../../utils/consts';
 
-const Popup = React.memo(() => {
-  const { popupOpened } = useSelector((
+const Popup = memo(() => {
+  const { popupOpened, gameStatus } = useSelector((
     state,
-  ) => ({ popupOpened: state.popupOpened }));
+  ) => ({ popupOpened: state.popupOpened, gameStatus: state.gameStatus }));
   const dispatch = useDispatch();
   const handleDifficultyAndClose = ({ rows, columns, moves }) => {
     dispatch(startGame({
@@ -15,12 +15,13 @@ const Popup = React.memo(() => {
       rows,
       columns,
     }));
+    dispatch(setGameStatus(''));
     dispatch(togglePopup());
   };
 
   return (
     <div className={`Popup ${popupOpened ? 'Popup_opened' : ''}`}>
-      <h1 className="Popup__title">Победа!</h1>
+      <h1 className="Popup__title">{gameStatus === 'win' ? 'Победа!' : 'Поражение'}</h1>
       <p className="Popup__subtitle">Попробуйте еще раз:</p>
       <ul className="Popup__restart-menu">
         <li className="Popup__restart-menu-item">

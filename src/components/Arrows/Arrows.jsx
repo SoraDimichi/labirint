@@ -4,25 +4,39 @@ import { useSelector } from 'react-redux';
 import Arrow from './Arrow/Arrow';
 
 const Arrows = () => {
-  const { countDown, moves, moveHistory } = useSelector((
+  const {
+    countDown,
+    moveHistory,
+    gameStatus,
+  } = useSelector((
     state,
-  ) => ({ countDown: state.countDown, moves: state.moves, moveHistory: state.moveHistory }));
-  const [showedState, setShowedState] = useState(0);
+  ) => ({
+    countDown: state.countDown,
+    moveHistory: state.moveHistory,
+    gameStatus: state.gameStatus,
+  }));
+
   const [arrows, setArrows] = useState([]);
 
   useEffect(() => {
-    if (showedState < moves) {
+    if (gameStatus === '') {
+      setArrows([]);
+    }
+  }, [gameStatus]);
+
+  useEffect(() => {
+    if (arrows.length < moveHistory.length) {
       setTimeout(() => {
-        const ArrayOfArrows = [...moveHistory];
-        const arrowElement = (<Arrow direction={ArrayOfArrows[showedState]} key={showedState} />);
+        const arrowElement = (<Arrow direction={moveHistory[arrows.length]} key={arrows.length} />);
         setArrows([...arrows, arrowElement]);
-        setShowedState((current) => current + 1);
+        console.log(arrows.length);
       }, countDown);
     }
-  }, [showedState, moves]);
+  }, [arrows]);
 
   return (
     <ul className="Arrows">
+      {console.log(arrows)}
       {arrows}
     </ul>
   );
