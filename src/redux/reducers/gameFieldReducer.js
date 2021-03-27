@@ -1,9 +1,8 @@
 import {
-  PLAYER_TURN,
   SET_GAME_STATE,
   SET_GAME_STATUS,
   TOGGLE_POPUP,
-  SET_COUNT_FOR_ARROWS,
+  TOGGLE_CLICKABLE,
 } from '../types';
 
 import {
@@ -12,12 +11,6 @@ import {
   INITIAL_COLUMNS,
   INITIAL_COUNTDOWN,
 } from '../../utils/consts';
-
-const PATH_SHOWED_STATES = {
-  inProgress: 'inProgress',
-  done: 'done',
-  notStarted: 'notStarted',
-};
 
 const INITIAL_STATE = {
   moveHistory: [], // ['left', 'up']
@@ -29,9 +22,9 @@ const INITIAL_STATE = {
   selectedPosition: null,
   finishPosition: null,
   startPosition: null,
-  pathShowedState: PATH_SHOWED_STATES.notStarted,
   popupOpened: false,
   gameStatus: '',
+  isClickable: false,
 };
 
 const gameFieldReducer = (state = INITIAL_STATE, action) => {
@@ -43,7 +36,6 @@ const gameFieldReducer = (state = INITIAL_STATE, action) => {
           startPosition,
           finishPosition,
           tiles,
-          moves,
         },
       } = action;
       return {
@@ -52,7 +44,6 @@ const gameFieldReducer = (state = INITIAL_STATE, action) => {
         startPosition,
         finishPosition,
         tiles,
-        moves,
       };
     }
 
@@ -68,38 +59,17 @@ const gameFieldReducer = (state = INITIAL_STATE, action) => {
       };
     }
 
-    case SET_COUNT_FOR_ARROWS: {
-      const {
-        payload: {
-          moveHistory,
-          countDown,
-          counter,
-        },
-      } = action;
-      return {
-        ...state,
-        counter,
-        moveHistory,
-        countDown,
-      };
-    }
-
-    case PLAYER_TURN: {
-      const {
-        payload: {
-          selectedPosition,
-        },
-      } = action;
-      return {
-        ...state,
-        selectedPosition,
-      };
-    }
-
     case TOGGLE_POPUP: {
       return {
         ...state,
         popupOpened: !state.popupOpened,
+      };
+    }
+
+    case TOGGLE_CLICKABLE: {
+      return {
+        ...state,
+        isClickable: !state.isClickable,
       };
     }
 

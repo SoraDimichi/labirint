@@ -6,6 +6,7 @@ import dislike from '../../../images/dislike.svg';
 import {
   togglePopup,
   setGameStatus,
+  toggleClickable,
 } from '../../../redux/actions';
 
 const Tile = ({ position }) => {
@@ -21,6 +22,7 @@ const Tile = ({ position }) => {
   const [tileResult, setTileResult] = useState('');
 
   const handleTileClick = (pos) => {
+    dispatch(toggleClickable());
     pos === finishPosition ? setTileResult('win') : setTileResult('lose');
     setTimeout(() => dispatch(togglePopup()), 2000);
   };

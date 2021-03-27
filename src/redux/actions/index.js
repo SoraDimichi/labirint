@@ -6,6 +6,7 @@ import {
 import {
   SET_GAME_STATE,
   TOGGLE_POPUP,
+  TOGGLE_CLICKABLE,
   SET_GAME_STATUS,
 } from '../types';
 
@@ -51,4 +52,8 @@ export const startGame = ({
 
 export const togglePopup = () => ({
   type: TOGGLE_POPUP,
+});
+
+export const toggleClickable = () => ({
+  type: TOGGLE_CLICKABLE,
 });
