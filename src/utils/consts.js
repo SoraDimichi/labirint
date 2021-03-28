@@ -1,7 +1,7 @@
 export const INITIAL_ROWS = 3;
 export const INITIAL_COLUMNS = 3;
 export const INITIAL_MOVES = 10;
-export const INITIAL_COUNTDOWN = 300;
+export const INITIAL_COUNTDOWN = 1500;
 
 export const getRandomInt = (minInt, maxInt) => {
   const min = Math.ceil(minInt);
