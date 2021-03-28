@@ -4,8 +4,8 @@
   min-height: 100vh;
   min-width: 100vw;
   background: #fff;
-  grid-template-columns: 1fr minmax(30px, 1fr) minmax(1px, 331px) minmax(30px, 1fr) 1fr;
-  grid-template-rows: 0.5fr max-content 32px max-content 16px max-content 0.5fr;
+  grid-template-columns: 1fr minmax(10px, 1fr) minmax(1px, 300px) minmax(10px, 1fr) 1fr;
+  grid-template-rows: 0.5fr max-content 32px max-content 32px max-content 0.5fr;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.5s linear, opacity 0.5s ease-in-out;
@@ -45,7 +45,7 @@
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: 1fr 6px 1fr 6px 1fr;
+  grid-template-columns: 1fr 12px 1fr 12px 1fr;
 }
 
 .Popup__restart-menu-item:nth-of-type(1) {

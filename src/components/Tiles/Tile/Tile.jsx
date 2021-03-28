@@ -41,7 +41,11 @@ const Tile = ({ position }) => {
 
   return (
     <li className="Tile">
-      <button type="button" className="Tile__button" onClick={() => handleTileClick(position)}>
+      <button
+        type="button"
+        className="Tile__button focus-effect"
+        onClick={() => handleTileClick(position)}
+      >
         <p
           className={`Tile__text
           ${position === startPosition

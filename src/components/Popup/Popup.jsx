@@ -27,7 +27,7 @@ const Popup = memo(() => {
         <li className="Popup__restart-menu-item">
           <button
             type="button"
-            className="Popup__restart-menu-button"
+            className="Popup__restart-menu-button focus-effect"
             onClick={() => handleDifficultyAndClose(EASY_LEVEL)}
           >
             Легко
@@ -36,7 +36,7 @@ const Popup = memo(() => {
         <li className="Popup__restart-menu-item">
           <button
             type="button"
-            className="Popup__restart-menu-button"
+            className="Popup__restart-menu-button focus-effect"
             onClick={() => handleDifficultyAndClose(MEDIUM_LEVEL)}
           >
             Средне
@@ -45,7 +45,7 @@ const Popup = memo(() => {
         <li className="Popup__restart-menu-item">
           <button
             type="button"
-            className="Popup__restart-menu-button"
+            className="Popup__restart-menu-button focus-effect"
             onClick={() => handleDifficultyAndClose(HARD_LEVEL)}
           >
             Сложно

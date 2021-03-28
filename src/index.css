@@ -12,3 +12,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.focus-effect:focus {
+  outline: none;
+  box-shadow: 0 0 3px #0066ff;
+}
