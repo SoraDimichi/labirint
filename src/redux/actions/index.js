@@ -1,5 +1,5 @@
 import {
-  getMoveHistoryAndfinishPosition,
+  getMoveHistoryAndFinishPosition,
   getRandomInt,
 } from '../../utils/consts';
 
@@ -31,7 +31,7 @@ export const startGame = ({
   const {
     moveHistory,
     finishPosition,
-  } = getMoveHistoryAndfinishPosition({
+  } = getMoveHistoryAndFinishPosition({
     startPosition,
     rows,
     columns,

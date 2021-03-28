@@ -40,7 +40,7 @@ export const MEDIUM_LEVEL = {
 
 export const getTilesNumber = (rows, columns) => rows * columns;
 
-export const getMoveHistoryAndfinishPosition = ({
+export const getMoveHistoryAndFinishPosition = ({
   startPosition,
   rows,
   columns,
