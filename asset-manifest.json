@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/labirint/static/css/main.4bca281e.chunk.css",
-    "main.js": "/labirint/static/js/main.a3872a90.chunk.js",
-    "main.js.map": "/labirint/static/js/main.a3872a90.chunk.js.map",
+    "main.js": "/labirint/static/js/main.c0dd54cd.chunk.js",
+    "main.js.map": "/labirint/static/js/main.c0dd54cd.chunk.js.map",
     "runtime-main.js": "/labirint/static/js/runtime-main.3e3e2cc0.js",
     "runtime-main.js.map": "/labirint/static/js/runtime-main.3e3e2cc0.js.map",
     "static/js/2.b51513a6.chunk.js": "/labirint/static/js/2.b51513a6.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.3e3e2cc0.js",
     "static/js/2.b51513a6.chunk.js",
     "static/css/main.4bca281e.chunk.css",
-    "static/js/main.a3872a90.chunk.js"
+    "static/js/main.c0dd54cd.chunk.js"
   ]
 }
