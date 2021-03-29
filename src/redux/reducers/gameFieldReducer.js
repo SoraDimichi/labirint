@@ -10,6 +10,7 @@ import {
   INITIAL_ROWS,
   INITIAL_COLUMNS,
   INITIAL_COUNTDOWN,
+  GAME_STATUS,
 } from '../../utils/consts';
 
 const INITIAL_STATE = {
@@ -23,7 +24,7 @@ const INITIAL_STATE = {
   finishPosition: null,
   startPosition: null,
   popupOpened: false,
-  gameStatus: '',
+  gameStatus: GAME_STATUS.started,
   isClickable: false,
 };
 
@@ -50,12 +51,21 @@ const gameFieldReducer = (state = INITIAL_STATE, action) => {
     case SET_GAME_STATUS: {
       const {
         payload: {
-          gameStatus,
+          selectedPosition,
         },
       } = action;
+      let currentGameStatus;
+      if (selectedPosition === null) {
+        currentGameStatus = GAME_STATUS.started;
+      } else if (selectedPosition === state.finishPosition) {
+        currentGameStatus = GAME_STATUS.win;
+      } else {
+        currentGameStatus = GAME_STATUS.lose;
+      }
       return {
         ...state,
-        gameStatus,
+        gameStatus: currentGameStatus,
+        selectedPosition,
       };
     }
 

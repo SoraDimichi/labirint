@@ -14,8 +14,8 @@ export const randomizeDirection = () => {
   return directions[Math.floor(Math.random() * directions.length)];
 };
 
-export const gameStatus = {
-  started: 'started',
+export const GAME_STATUS = {
+  started: null,
   win: 'win',
   lose: 'lose',
 };

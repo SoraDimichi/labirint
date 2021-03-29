@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Arrows.css';
 import { useSelector, useDispatch } from 'react-redux';
 import Arrow from './Arrow/Arrow';
+import { GAME_STATUS } from '../../utils/consts';
 import {
   toggleClickable,
 } from '../../redux/actions';
@@ -23,7 +24,7 @@ const Arrows = () => {
   const [arrows, setArrows] = useState([]);
 
   useEffect(() => {
-    if (gameStatus === '') {
+    if (gameStatus === GAME_STATUS.started) {
       setArrows([]);
     }
   }, [gameStatus]);

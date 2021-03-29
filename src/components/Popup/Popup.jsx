@@ -1,7 +1,11 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Popup.css';
-import { startGame, togglePopup, setGameStatus } from '../../redux/actions';
+import {
+  startGame,
+  togglePopup,
+  setGameStatus,
+} from '../../redux/actions';
 import { HARD_LEVEL, MEDIUM_LEVEL, EASY_LEVEL } from '../../utils/consts';
 
 const Popup = memo(() => {
@@ -15,7 +19,7 @@ const Popup = memo(() => {
       rows,
       columns,
     }));
-    dispatch(setGameStatus(''));
+    dispatch(setGameStatus(null));
     dispatch(togglePopup());
   };
 

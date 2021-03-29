@@ -8,21 +8,24 @@ import {
   TOGGLE_POPUP,
   TOGGLE_CLICKABLE,
   SET_GAME_STATUS,
+  // SET_SELECTED_POSITION,
 } from '../types';
 
-export const setGameStatus = (currentGameStatus) => {
-  const gameStatus = currentGameStatus;
-  return {
-    type: SET_GAME_STATUS,
-    payload: {
-      gameStatus,
-    },
-  };
-};
+// const setGameStatus = () => ({
+//   type: SET_GAME_STATUS,
+// });
+
+export const setGameStatus = (
+  currentSelectedPosition,
+) => ({
+  type: SET_GAME_STATUS,
+  payload: {
+    selectedPosition: currentSelectedPosition,
+  },
+});
 
 export const startGame = ({
   moves,
-  countDown,
   rows,
   columns,
 }) => {
@@ -43,7 +46,6 @@ export const startGame = ({
     payload: {
       moveHistory,
       finishPosition,
-      countDown,
       tiles,
       startPosition,
     },
