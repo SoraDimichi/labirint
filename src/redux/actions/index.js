@@ -8,12 +8,7 @@ import {
   TOGGLE_POPUP,
   TOGGLE_CLICKABLE,
   SET_GAME_STATUS,
-  // SET_SELECTED_POSITION,
 } from '../types';
-
-// const setGameStatus = () => ({
-//   type: SET_GAME_STATUS,
-// });
 
 export const setGameStatus = (
   currentSelectedPosition,

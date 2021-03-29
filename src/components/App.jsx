@@ -9,6 +9,7 @@ import {
   INITIAL_COLUMNS,
   INITIAL_MOVES,
   INITIAL_COUNTDOWN,
+  GAME_STATUS,
 } from '../utils/consts';
 import { startGame } from '../redux/actions';
 
@@ -39,7 +40,8 @@ const App = () => {
       </h1>
       <p className="App__subtitle">
         {isClickable ? 'Пришло время кликать'
-          : (gameStatus !== '' ? 'Игра закончена' : 'Двигайся мысленно по стрелочкам.')}
+          : (gameStatus !== GAME_STATUS.started
+            ? 'Игра закончена' : 'Двигайся мысленно по стрелочкам.')}
       </p>
       <Tiles />
       <Arrows />
