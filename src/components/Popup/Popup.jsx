@@ -9,10 +9,10 @@ import {
 import { HARD_LEVEL, MEDIUM_LEVEL, EASY_LEVEL } from '../../utils/consts';
 
 const Popup = memo(() => {
-  const { popupOpened, gameStatus } = useSelector((
-    state,
-  ) => ({ popupOpened: state.popupOpened, gameStatus: state.gameStatus }));
   const dispatch = useDispatch();
+  const popupOpened = useSelector((state) => state.app.popupOpened);
+  const gameStatus = useSelector((state) => state.game.gameStatus);
+
   const handleDifficultyAndClose = ({ rows, columns, moves }) => {
     dispatch(startGame({
       moves,

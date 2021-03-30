@@ -14,16 +14,10 @@ import {
 import { startGame } from '../redux/actions';
 
 const App = () => {
-  const {
-    isClickable,
-    gameStatus,
-  } = useSelector((
-    state,
-  ) => ({
-    gameStatus: state.gameStatus,
-    isClickable: state.isClickable,
-  }));
   const dispatch = useDispatch();
+  const isClickable = useSelector((state) => state.app.isClickable);
+  const gameStatus = useSelector((state) => state.game.gameStatus);
+
   useEffect(() => {
     dispatch(startGame({
       moves: INITIAL_MOVES,

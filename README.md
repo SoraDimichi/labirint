@@ -19,6 +19,3 @@ $ npm install
 
 ## Запуск
 $ npm run start
-
-###TODO
-1) Рефакторинг проджекта

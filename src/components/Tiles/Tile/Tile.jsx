@@ -11,21 +11,11 @@ import {
 } from '../../../redux/actions';
 
 const Tile = ({ position }) => {
-  const {
-    startPosition,
-    finishPosition,
-    selectedPosition,
-    gameStatus,
-  } = useSelector((
-    state,
-  ) => ({
-    startPosition: state.startPosition,
-    finishPosition: state.finishPosition,
-    selectedPosition: state.selectedPosition,
-    gameStatus: state.gameStatus,
-  }));
-
   const dispatch = useDispatch();
+  const startPosition = useSelector((state) => state.game.startPosition);
+  const finishPosition = useSelector((state) => state.game.finishPosition);
+  const selectedPosition = useSelector((state) => state.game.selectedPosition);
+  const gameStatus = useSelector((state) => state.game.gameStatus);
 
   const handleTileClick = (pos) => {
     dispatch(toggleClickable());

@@ -4,15 +4,8 @@ import { useSelector } from 'react-redux';
 import Tile from './Tile/Tile';
 
 const Tiles = () => {
-  const {
-    tiles,
-    isClickable,
-  } = useSelector((
-    state,
-  ) => ({
-    tiles: state.tiles,
-    isClickable: state.isClickable,
-  }));
+  const isClickable = useSelector((state) => state.app.isClickable);
+  const tiles = useSelector((state) => state.game.tiles);
 
   const tilesData = Array(tiles).fill().map((_item, index) => index + 1);
 

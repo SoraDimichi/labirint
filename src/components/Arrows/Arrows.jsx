@@ -8,18 +8,10 @@ import {
 } from '../../redux/actions';
 
 const Arrows = () => {
-  const {
-    countDown,
-    moveHistory,
-    gameStatus,
-  } = useSelector((
-    state,
-  ) => ({
-    countDown: state.countDown,
-    moveHistory: state.moveHistory,
-    gameStatus: state.gameStatus,
-  }));
   const dispatch = useDispatch();
+  const countDown = useSelector((state) => state.game.countDown);
+  const moveHistory = useSelector((state) => state.game.moveHistory);
+  const gameStatus = useSelector((state) => state.game.gameStatus);
 
   const [arrows, setArrows] = useState([]);
 

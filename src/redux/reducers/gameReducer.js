@@ -1,8 +1,6 @@
 import {
   SET_GAME_STATE,
   SET_GAME_STATUS,
-  TOGGLE_POPUP,
-  TOGGLE_CLICKABLE,
 } from '../types';
 
 import {
@@ -23,12 +21,10 @@ const INITIAL_STATE = {
   selectedPosition: null,
   finishPosition: null,
   startPosition: null,
-  popupOpened: false,
   gameStatus: GAME_STATUS.started,
-  isClickable: false,
 };
 
-const gameFieldReducer = (state = INITIAL_STATE, action) => {
+const gameReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SET_GAME_STATE: {
       const {
@@ -69,23 +65,9 @@ const gameFieldReducer = (state = INITIAL_STATE, action) => {
       };
     }
 
-    case TOGGLE_POPUP: {
-      return {
-        ...state,
-        popupOpened: !state.popupOpened,
-      };
-    }
-
-    case TOGGLE_CLICKABLE: {
-      return {
-        ...state,
-        isClickable: !state.isClickable,
-      };
-    }
-
     default:
       return state;
   }
 };
 
-export default gameFieldReducer;
+export default gameReducer;
