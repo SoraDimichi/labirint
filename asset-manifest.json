@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/labirint/static/css/main.4bca281e.chunk.css",
-    "main.js": "/labirint/static/js/main.eab0a3bf.chunk.js",
-    "main.js.map": "/labirint/static/js/main.eab0a3bf.chunk.js.map",
+    "main.js": "/labirint/static/js/main.0ca0b4bd.chunk.js",
+    "main.js.map": "/labirint/static/js/main.0ca0b4bd.chunk.js.map",
     "runtime-main.js": "/labirint/static/js/runtime-main.3e3e2cc0.js",
     "runtime-main.js.map": "/labirint/static/js/runtime-main.3e3e2cc0.js.map",
-    "static/js/2.1b1ab36b.chunk.js": "/labirint/static/js/2.1b1ab36b.chunk.js",
-    "static/js/2.1b1ab36b.chunk.js.map": "/labirint/static/js/2.1b1ab36b.chunk.js.map",
+    "static/js/2.7bc4a3b5.chunk.js": "/labirint/static/js/2.7bc4a3b5.chunk.js",
+    "static/js/2.7bc4a3b5.chunk.js.map": "/labirint/static/js/2.7bc4a3b5.chunk.js.map",
     "index.html": "/labirint/index.html",
     "static/css/main.4bca281e.chunk.css.map": "/labirint/static/css/main.4bca281e.chunk.css.map",
-    "static/js/2.1b1ab36b.chunk.js.LICENSE.txt": "/labirint/static/js/2.1b1ab36b.chunk.js.LICENSE.txt",
+    "static/js/2.7bc4a3b5.chunk.js.LICENSE.txt": "/labirint/static/js/2.7bc4a3b5.chunk.js.LICENSE.txt",
     "static/media/dislike.99ef78fa.svg": "/labirint/static/media/dislike.99ef78fa.svg",
     "static/media/like.4f954970.svg": "/labirint/static/media/like.4f954970.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.3e3e2cc0.js",
-    "static/js/2.1b1ab36b.chunk.js",
+    "static/js/2.7bc4a3b5.chunk.js",
     "static/css/main.4bca281e.chunk.css",
-    "static/js/main.eab0a3bf.chunk.js"
+    "static/js/main.0ca0b4bd.chunk.js"
   ]
 }
