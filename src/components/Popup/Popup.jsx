@@ -8,7 +8,7 @@ import {
 } from '../../redux/actions';
 import { HARD_LEVEL, MEDIUM_LEVEL, EASY_LEVEL } from '../../utils/consts';
 
-const Popup = memo(() => {
+const Popup = () => {
   const dispatch = useDispatch();
   const popupOpened = useSelector((state) => state.app.popupOpened);
   const gameStatus = useSelector((state) => state.game.gameStatus);
@@ -58,6 +58,6 @@ const Popup = memo(() => {
       </ul>
     </div>
   );
-});
+};
 
-export default Popup;
+export default memo(Popup);

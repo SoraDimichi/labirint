@@ -89,3 +89,11 @@ export const getMoveHistoryAndFinishPosition = ({
   }
   return { moveHistory, finishPosition };
 };
+
+// console.log(getMoveHistoryAndFinishPosition({
+//   startPosition: getRandomInt(1, EASY_LEVEL.rows * EASY_LEVEL.columns),
+//   rows: EASY_LEVEL.rows,
+//   columns: EASY_LEVEL.columns,
+//   tiles: EASY_LEVEL.rows * EASY_LEVEL.columns,
+//   moves: EASY_LEVEL.moves,
+// }));
